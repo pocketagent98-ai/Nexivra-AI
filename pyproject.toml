@@ -3,13 +3,13 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "veriforge-ai"
-version = "0.1.0"
-description = "VeriForge AI — evidence-first autonomous research and agent platform (proprietary, source-available)"
+name = "nexivra-ai"
+version = "0.2.0"
+description = "Nexivra AI — evidence-first autonomous research and agent platform (proprietary, source-available)"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "Proprietary — All rights reserved. See LICENSE." }
-authors = [{ name = "VeriForge AI" }]
+authors = [{ name = "Nexivra AI" }]
 dependencies = [
     "cryptography>=42.0",
 ]
@@ -21,7 +21,7 @@ dev = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["veriforge*"]
+include = ["nexivra*"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

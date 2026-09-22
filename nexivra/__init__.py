@@ -1,4 +1,4 @@
-"""VeriForge AI — evidence-first autonomous research and agent platform.
+"""Nexivra AI — evidence-first autonomous research and agent platform.
 
 Core pipeline: ASK -> PLAN -> RESEARCH -> COLLECT EVIDENCE -> CROSS-CHECK
 -> VERIFY -> SYNTHESIZE -> ACT.
@@ -19,8 +19,19 @@ from .audit import AuditLogger
 from .memory import ResearchMemory
 from .research import ResearchEngine, ResearchMode, RunLimits
 from .ssrf import assert_safe_url, UnsafeUrlError
+from .local import (
+    APIAwareRouter,
+    DeviceProfile,
+    FailureKind,
+    LocalModelSpec,
+    LocalModelUnavailable,
+    QWEN3_06B,
+    SMOLLM2_135M,
+    StubLocalRuntime,
+    classify_failure,
+)
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     "ClaimStatus",
@@ -43,5 +54,14 @@ __all__ = [
     "RunLimits",
     "assert_safe_url",
     "UnsafeUrlError",
+    "APIAwareRouter",
+    "DeviceProfile",
+    "FailureKind",
+    "LocalModelSpec",
+    "LocalModelUnavailable",
+    "QWEN3_06B",
+    "SMOLLM2_135M",
+    "StubLocalRuntime",
+    "classify_failure",
     "__version__",
 ]

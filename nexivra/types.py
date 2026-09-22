@@ -1,4 +1,4 @@
-"""Core data types for the VeriForge evidence pipeline.
+"""Core data types for the Nexivra evidence pipeline.
 
 Everything important in a research run is represented as a traceable record:
 

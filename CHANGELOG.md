@@ -1,6 +1,36 @@
 # Changelog
 
-All notable changes to VeriForge AI are documented here.
+All notable changes to Nexivra AI are documented here.
+
+## [0.2.0] — 2026-09-22 (Nexivra update)
+
+Product renamed VeriForge AI → **Nexivra AI** (working name; verify
+trademark/domain availability before commercial use).
+
+### Added
+- `nexivra/local.py`: the API-aware cloud/local loading gate.
+  - `APIAwareRouter`: healthy authorized cloud API → cloud (local model
+    MUST NOT be loaded); no usable API → lazy-load local Qwen3-0.6B;
+    cloud recovers → resume cloud and unload local when safe.
+  - Failure classification: missing key, invalid key (401/403), 429,
+    5xx, timeout, quota exhaustion, provider outage, network offline.
+  - `DeviceProfile` (Lite / Balanced / Auto): context 2048–4096 tokens,
+    conservative generation, no hardcoded RAM thresholds.
+  - `LocalModelSpec` entries for Qwen3-0.6B (primary, Q4_0 GGUF) and
+    optional SmolLM2-135M-Instruct ultra-lite; RWKV-4 169M excluded.
+  - `StubLocalRuntime` for offline tests; `LocalModelUnavailable` raised
+    instead of ever silently switching to a paid API.
+- 19 new offline tests for the loading gate (cloud routing, local
+    routing, switching, unload-when-safe and while-busy deferral, key
+    failure, 429, timeout, quota, lazy loading, probe interval).
+- Docs: `docs/LOCAL-AI.md`, `docs/MOBILE.md`, `docs/OMNIROUTE.md`.
+- Third-party notices extended with Qwen3-0.6B, llama.cpp and SmolLM2
+  entries plus a model-honesty note (third-party models are never called
+  proprietary Nexivra models).
+
+### Changed
+- Full rebrand VeriForge → Nexivra across package, docs and packaging.
+- Deterministic wall-time truncation test.
 
 ## [0.1.0] — 2026-09-22
 
