@@ -22,9 +22,10 @@ python examples/demo_offline.py # full pipeline, no keys needed
 ## Environment variables
 
 | Variable | Purpose |
-|---|---|---n| `VAULT_MASTER_KEY` | urlsafe-base64 32-byte Fernet master key for the encrypted vault. If unset, an ephemeral per-process key is generated (dev only — stored keys do not survive restarts). Generate with: `python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"` |
+|---|---|
+| `VAULT_MASTER_KEY` | urlsafe-base64 32-byte Fernet master key for the encrypted vault. If unset, an ephemeral per-process key is generated (dev only — stored keys do not survive restarts). Generate with: `python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"` |
 | `NEXIVRA_LOCAL_MODEL` | Path to the local Qwen3-0.6B GGUF file (see docs/LOCAL-AI.md). |
-| `NEXIVRA_DEVICE_PROFILE` | `lite` \| `balanced` \| `auto` device profile (see docs/MOBILE.md). |
+| `NEXIVRA_DEVICE_PROFILE` | `lite` / `balanced` / `auto` device profile (see docs/MOBILE.md). |
 
 API keys are NOT environment configuration — they live in the vault,
 entered through the official connect flow (see docs/NVIDIA-NIM.md).
