@@ -30,8 +30,8 @@ analysis complexity for no benefit.
 Registering a route:
 
 ```python
-from veriforge.adapters import OpenAICompatibleAdapter
-from veriforge.gateway import ModelProfile, UniversalModelGateway
+from nexivra.adapters import OpenAICompatibleAdapter
+from nexivra.gateway import ModelProfile, UniversalModelGateway
 
 gw = UniversalModelGateway(vault=vault, quotas=quotas, audit=audit)
 gw.register_adapter(OpenAICompatibleAdapter("nvidia", "https://integrate.api.nvidia.com/v1"))

@@ -1,6 +1,6 @@
 # Privacy
 
-## What VeriForge AI stores
+## What Nexivra AI stores
 
 - Research runs: the question, the plan, the sources (URL, title, domain,
   publication/access dates, tier, content hash), evidence excerpts,

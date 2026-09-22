@@ -48,19 +48,20 @@ Question
 
 | Concern | Module | Notes |
 |---|---|---|
-| Types / records | `veriforge/types.py` | Claim, Evidence, Source, ClaimStatus, SourceTier |
-| Model access | `veriforge/adapters.py`, `veriforge/gateway.py` | OpenAI-compatible adapter; StaticAdapter for deterministic offline runs |
-| Secrets | `veriforge/vault.py` | Fernet-encrypted JSON store; masked previews only |
-| Budgets | `veriforge/quotas.py` | Exact or per-provider wildcard budgets; paid models opt-in |
-| Evidence | `veriforge/evidence.py` | Source dedup by URL + content hash |
-| Claims | `veriforge/claims.py` | Status updates flow only through the verifier |
-| Contradictions | `veriforge/conflicts.py` | Unit-family grouping, tolerance-based comparison |
-| Verification gate | `veriforge/verify.py` | See docs/VERIFICATION.md |
-| Orchestration | `veriforge/research.py` | Modes + limits |
-| Memory | `veriforge/memory.py` | Per-project run summaries |
-| Audit | `veriforge/audit.py` | JSONL, secrets masked structurally |
-| Untrusted content | `veriforge/untrusted.py` | Neutralize + fence |
-| Network safety | `veriforge/ssrf.py` | assert_safe_url on every fetch |
+| Types / records | `nexivra/types.py` | Claim, Evidence, Source, ClaimStatus, SourceTier |
+| Model access | `nexivra/adapters.py`, `nexivra/gateway.py` | OpenAI-compatible adapter; StaticAdapter for deterministic offline runs |
+| Secrets | `nexivra/vault.py` | Fernet-encrypted JSON store; masked previews only |
+| Budgets | `nexivra/quotas.py` | Exact or per-provider wildcard budgets; paid models opt-in |
+| Evidence | `nexivra/evidence.py` | Source dedup by URL + content hash |
+| Claims | `nexivra/claims.py` | Status updates flow only through the verifier |
+| Contradictions | `nexivra/conflicts.py` | Unit-family grouping, tolerance-based comparison |
+| Verification gate | `nexivra/verify.py` | See docs/VERIFICATION.md |
+| Orchestration | `nexivra/research.py` | Modes + limits |
+| Memory | `nexivra/memory.py` | Per-project run summaries |
+| Audit | `nexivra/audit.py` | JSONL, secrets masked structurally |
+| Untrusted content | `nexivra/untrusted.py` | Neutralize + fence |
+| Network safety | `nexivra/ssrf.py` | assert_safe_url on every fetch |
+| Local AI gate | `nexivra/local.py` | API-aware cloud-first loading; Qwen3-0.6B via llama.cpp |
 
 ## Audit chain
 
@@ -69,7 +70,6 @@ Every verified answer can be replayed:
 ```
 answer section -> claim -> evidence -> source -> research task -> model/provider -> timestamp
 ```
-
 The `AuditLogger` records `model.call`, `model.error`, `quota.reserve`,
 `claim.status`, `verification.gate`, `research.done` events. Secret values
 cannot appear in the trail: the `mask()` helper collapses any

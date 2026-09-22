@@ -24,7 +24,7 @@ contradiction analyst · synthesizer · executor
 
 1. Search hits are fetched through `FetchTool` only after `assert_safe_url`.
 2. Retrieved content is **untrusted data**: it is neutralized and fenced
-   (`veriforge/untrusted.py`) before anything downstream sees it.
+   (`nexivra/untrusted.py`) before anything downstream sees it.
 3. Sources are recorded with URL, title, domain, publication date, access
    date, type, tier and content hash; duplicates by URL or content hash
    collapse to one source.

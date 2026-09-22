@@ -2,7 +2,7 @@
 
 ## Status
 
-v0.1.0 is a library + CLI-level core. It is NOT a hosted product yet.
+v0.2.0 is a library + CLI-level core. It is NOT a hosted product yet.
 There is no multi-tenant server, no user accounts, and no production
 deployment. The instructions below are for local/evaluation use and for
 the planned single-operator deployment.
@@ -15,15 +15,16 @@ the planned single-operator deployment.
 ## Local run
 
 ```bash
-python -m pytest               # 85 offline tests
+python -m pytest               # 104 offline tests
 python examples/demo_offline.py # full pipeline, no keys needed
 ```
 
 ## Environment variables
 
 | Variable | Purpose |
-|---|---|
-| `VAULT_MASTER_KEY` | urlsafe-base64 32-byte Fernet master key for the encrypted vault. If unset, an ephemeral per-process key is generated (dev only — stored keys do not survive restarts). Generate with: `python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"` |
+|---|---|---n| `VAULT_MASTER_KEY` | urlsafe-base64 32-byte Fernet master key for the encrypted vault. If unset, an ephemeral per-process key is generated (dev only — stored keys do not survive restarts). Generate with: `python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"` |
+| `NEXIVRA_LOCAL_MODEL` | Path to the local Qwen3-0.6B GGUF file (see docs/LOCAL-AI.md). |
+| `NEXIVRA_DEVICE_PROFILE` | `lite` \| `balanced` \| `auto` device profile (see docs/MOBILE.md). |
 
 API keys are NOT environment configuration — they live in the vault,
 entered through the official connect flow (see docs/NVIDIA-NIM.md).
