@@ -1,4 +1,4 @@
-from veriforge.types import ClaimStatus, SourceTier, content_hash
+from nexivra.types import ClaimStatus, SourceTier, content_hash
 
 
 def test_all_claim_statuses_present():
@@ -20,7 +20,7 @@ def test_content_hash_stable():
 
 
 def test_claim_is_ok_semantics():
-    import veriforge.types as t
+    import nexivra.types as t
     ok = t.Claim(id="c1", text="x", support_status=ClaimStatus.SUPPORTED.value)
     bad = t.Claim(id="c2", text="x", support_status=ClaimStatus.UNVERIFIED.value)
     assert ok.is_ok and not bad.is_ok

@@ -1,6 +1,6 @@
 import pytest
 
-from veriforge.ssrf import UnsafeUrlError, assert_safe_url
+from nexivra.ssrf import UnsafeUrlError, assert_safe_url
 
 
 def test_allows_public_https():

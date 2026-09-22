@@ -1,8 +1,8 @@
 import pytest
 
-from veriforge.claims import ClaimRegistry
-from veriforge.evidence import EvidenceStore, RegistryError, SourceRegistry
-from veriforge.types import ClaimStatus
+from nexivra.claims import ClaimRegistry
+from nexivra.evidence import EvidenceStore, RegistryError, SourceRegistry
+from nexivra.types import ClaimStatus
 
 
 def test_source_dedupe_by_url():
@@ -39,7 +39,7 @@ def test_evidence_add_and_lookup():
 
 
 def Claim_stub(evidence_id):
-    from veriforge.types import Claim
+    from nexivra.types import Claim
     return Claim(id="c", text="t", sources=[evidence_id])
 
 

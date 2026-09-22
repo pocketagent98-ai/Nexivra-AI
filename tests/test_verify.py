@@ -1,5 +1,5 @@
-from veriforge.conflicts import extract_measurements
-from veriforge.types import ClaimStatus
+from nexivra.conflicts import extract_measurements
+from nexivra.types import ClaimStatus
 
 from conftest import build_verifier
 

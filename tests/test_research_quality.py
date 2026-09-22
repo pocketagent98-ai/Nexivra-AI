@@ -3,7 +3,7 @@ outdated sources, unsupported claims, tool failures, injection."""
 
 import asyncio
 
-from veriforge.research import ResearchEngine, ResearchMode, RunLimits, SearchHit
+from nexivra.research import ResearchEngine, ResearchMode, RunLimits, SearchHit
 
 from conftest import CannedFetch, CannedSearch, build_gateway
 

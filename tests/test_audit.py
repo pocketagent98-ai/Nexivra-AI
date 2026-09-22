@@ -1,4 +1,4 @@
-from veriforge.audit import AuditLogger, mask
+from nexivra.audit import AuditLogger, mask
 
 
 def test_mask_credential_named_fields():

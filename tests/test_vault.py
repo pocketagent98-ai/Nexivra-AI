@@ -3,7 +3,7 @@ import json
 
 import pytest
 
-from veriforge.vault import ProviderVault, VaultError
+from nexivra.vault import ProviderVault, VaultError
 
 KEY = base64.urlsafe_b64encode(b"k" * 32)
 

@@ -1,6 +1,6 @@
 import json
 
-from veriforge.memory import ResearchMemory
+from nexivra.memory import ResearchMemory
 
 
 class _FakeReport:

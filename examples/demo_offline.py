@@ -1,4 +1,4 @@
-"""Offline demo of the VeriForge AI pipeline.
+"""Offline demo of the Nexivra AI pipeline.
 
 Runs the full ASK -> PLAN -> RESEARCH -> COLLECT EVIDENCE -> CROSS-CHECK
 -> VERIFY -> SYNTHESIZE flow with a deterministic in-memory model adapter
@@ -17,11 +17,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from veriforge.adapters import ChatMessage, StaticAdapter
-from veriforge.audit import AuditLogger
-from veriforge.gateway import ModelProfile, UniversalModelGateway
-from veriforge.quotas import ModelBudget, QuotaGovernor
-from veriforge.research import ResearchEngine, ResearchMode, SearchHit
+from nexivra.adapters import ChatMessage, StaticAdapter
+from nexivra.audit import AuditLogger
+from nexivra.gateway import ModelProfile, UniversalModelGateway
+from nexivra.quotas import ModelBudget, QuotaGovernor
+from nexivra.research import ResearchEngine, ResearchMode, SearchHit
 from tests.conftest import CannedFetch, CannedSearch
 
 QUESTION = "What was Acme Corp's annual revenue for the last fiscal year?"
@@ -67,7 +67,7 @@ def main() -> None:
     report = asyncio.run(engine.run(QUESTION))
 
     print("=" * 78)
-    print("VeriForge AI — offline Verified Deep demo")
+    print("Nexivra AI — offline Verified Deep demo")
     print("=" * 78)
     print(f"\nQuestion: {report.question}\n")
     print("PLAN:")

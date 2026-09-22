@@ -1,13 +1,13 @@
 import asyncio
 
-from veriforge.research import (
+from nexivra.research import (
     FetchError,
     ResearchEngine,
     ResearchMode,
     RunLimits,
     SearchHit,
 )
-from veriforge.types import SourceTier
+from nexivra.types import SourceTier
 
 from conftest import CannedFetch, CannedSearch, build_gateway
 
@@ -98,7 +98,8 @@ def test_research_to_action_blocks_unapproved():
 
 
 def test_wall_time_budget_truncates():
-    limits = RunLimits(max_agents=1, max_steps=1, max_searches=1, max_wall_time_seconds=0.001)
+    # 0.0 s budget: deterministic — every tick check is over budget
+    limits = RunLimits(max_agents=1, max_steps=1, max_searches=1, max_wall_time_seconds=0.0)
     engine = _engine(limits=limits)
     report = asyncio.run(engine.run("What was the annual revenue?"))
     assert report.truncated is True

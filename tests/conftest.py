@@ -9,15 +9,15 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import pytest
 
-from veriforge.adapters import AdapterError, ChatResult, StaticAdapter
-from veriforge.audit import AuditLogger
-from veriforge.claims import ClaimRegistry
-from veriforge.conflicts import ContradictionDetector
-from veriforge.evidence import EvidenceStore, SourceRegistry
-from veriforge.gateway import ModelProfile, UniversalModelGateway
-from veriforge.quotas import ModelBudget, QuotaGovernor
-from veriforge.research import FetchTool, SearchHit, SearchTool
-from veriforge.verify import VerificationEngine
+from nexivra.adapters import AdapterError, ChatResult, StaticAdapter
+from nexivra.audit import AuditLogger
+from nexivra.claims import ClaimRegistry
+from nexivra.conflicts import ContradictionDetector
+from nexivra.evidence import EvidenceStore, SourceRegistry
+from nexivra.gateway import ModelProfile, UniversalModelGateway
+from nexivra.quotas import ModelBudget, QuotaGovernor
+from nexivra.research import FetchTool, SearchHit, SearchTool
+from nexivra.verify import VerificationEngine
 
 
 class CannedSearch(SearchTool):
@@ -44,7 +44,7 @@ class CannedFetch(FetchTool):
 
     async def fetch(self, url: str) -> str:
         if url not in self.bodies:
-            from veriforge.research import FetchError
+            from nexivra.research import FetchError
             raise FetchError(f"404 not found: {url}")
         return self.bodies[url]
 

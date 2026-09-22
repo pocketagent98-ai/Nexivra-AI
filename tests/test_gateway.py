@@ -1,8 +1,8 @@
 import pytest
 
-from veriforge.adapters import AdapterError, ChatMessage
-from veriforge.gateway import ModelProfile, RouterError, UniversalModelGateway
-from veriforge.quotas import BudgetExhausted, ModelBudget, QuotaGovernor
+from nexivra.adapters import AdapterError, ChatMessage
+from nexivra.gateway import ModelProfile, RouterError, UniversalModelGateway
+from nexivra.quotas import BudgetExhausted, ModelBudget, QuotaGovernor
 
 from conftest import FailingAdapter, build_gateway
 
@@ -28,7 +28,7 @@ async def test_fallback_on_retryable_error():
 @pytest.mark.asyncio
 async def test_all_routes_failed_raises_router_error():
     gw = UniversalModelGateway()
-    from veriforge.adapters import StaticAdapter
+    from nexivra.adapters import StaticAdapter
     gw.register_adapter(FailingAdapter())
     gw.add_profile(ModelProfile(provider="failing", model="f-1"))
     with pytest.raises(RouterError):
@@ -38,7 +38,7 @@ async def test_all_routes_failed_raises_router_error():
 @pytest.mark.asyncio
 async def test_quota_exhaustion_blocks_silently_paid_upgrade():
     quotas = QuotaGovernor({"static/*": ModelBudget(requests=1)})
-    from veriforge.adapters import StaticAdapter
+    from nexivra.adapters import StaticAdapter
     gw = UniversalModelGateway(quotas=quotas)
     gw.register_adapter(StaticAdapter(name="static"))
     gw.add_profile(ModelProfile(provider="static", model="static-1"))
@@ -71,7 +71,7 @@ def test_unknown_provider_models():
 
 @pytest.mark.asyncio
 async def test_profiles_sorted_by_priority():
-    from veriforge.adapters import StaticAdapter
+    from nexivra.adapters import StaticAdapter
     gw = UniversalModelGateway()
     gw.register_adapter(StaticAdapter(name="a"))
     gw.register_adapter(StaticAdapter(name="b"))

@@ -1,6 +1,6 @@
 import pytest
 
-from veriforge.quotas import BudgetExhausted, ModelBudget, PaidModelBlocked, QuotaGovernor
+from nexivra.quotas import BudgetExhausted, ModelBudget, PaidModelBlocked, QuotaGovernor
 
 
 def test_reserve_and_record_usage():

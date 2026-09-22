@@ -1,5 +1,5 @@
-from veriforge.conflicts import ContradictionDetector, extract_measurements
-from veriforge.types import Claim, Evidence
+from nexivra.conflicts import ContradictionDetector, extract_measurements
+from nexivra.types import Claim, Evidence
 
 from conftest import build_verifier
 

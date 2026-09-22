@@ -1,4 +1,4 @@
-from veriforge.untrusted import contains_injection, defuse
+from nexivra.untrusted import contains_injection, defuse
 
 
 def test_defuse_neutralizes_instruction_overrides():
