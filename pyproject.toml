@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "veriforge-ai"
+version = "0.1.0"
+description = "VeriForge AI — evidence-first autonomous research and agent platform (proprietary, source-available)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary — All rights reserved. See LICENSE." }
+authors = [{ name = "VeriForge AI" }]
+dependencies = [
+    "cryptography>=42.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
+
+[tool.setuptools.packages.find]
+include = ["veriforge*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-q"
